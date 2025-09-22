@@ -1,0 +1,132 @@
+import java.util.Scanner;
+public class PlayerSelection {
+    public static void main(String[] args){
+        String name;
+        int age;
+        double height;
+        double weight;
+        int jerseynumber;
+        Scanner input=new Scanner(System.in);
+        System.out.print("Enter your name:");
+        name=input.nextLine();
+        System.out.print("Enter your age:");
+        age=input.nextInt();
+        System.out.print("Enter your weight:");
+        weight=input.nextDouble();
+        System.out.print("Enter your height:");
+        height=input.nextDouble();
+        System.out.print("Enter your jerseynumber:");
+        jerseynumber=input.nextInt();
+        final double pound=0.45359237;
+        final double meter=100;
+        double height_cm;
+        double weight_kg;
+        height_cm= (int) height*meter;
+        weight_kg= (double) weight*pound;
+        String category="";
+        if (age<20){
+            category="Rising Star";
+        }
+        else if(age<=30){
+            category="Prime Player";
+        }
+        else{
+            category="Veteran";
+            System.out.println(category);
+
+        }
+        String position;
+        position="";
+        switch(jerseynumber){
+            case 1:
+                position="Goalkeeper";
+                break;
+            case 2:
+                position="defender";
+            case 5:
+                position="defender";
+                break;
+            case 6:
+                position="mildfielder";
+                break;
+            case 7:
+                position="Winger";
+                break;
+            case 8:
+                position="Midfielder";
+                break;
+            case 9:
+                position="Striker";
+                break;
+            case 10:
+                position="Winger";
+                break;
+            default:
+                position="Invalid input";
+                break;
+
+        }
+        String eligibility;
+        eligibility="";
+        if (age>=18 && age<=35 && weight_kg<90){
+            eligibility="Eligible";
+
+        }
+        else{
+            eligibility="Not Eligible";
+        }
+        String decision;
+        if (category=="Prime Player"){
+            if (weight_kg<80){
+                decision="Starting lineup";
+            }
+            else{
+                decision="Bench";
+            }
+        }
+        else{
+            decision="Bench";
+
+        }
+        String attackerjersey;
+        if (jerseynumber==11|| jerseynumber==7|| jerseynumber==9|| jerseynumber==10){
+            attackerjersey="Yes";
+        }
+        else{
+            attackerjersey="No";
+        }
+
+        String finalStatus=(age>=18 && age<=35 &&weight_kg<90)?"Play":"Rest";
+        System.out.println("Player Report");
+        System.out.println("Player name : "+ name);
+        System.out.println("Age : "+ age+ "("+ category +")");
+        System.out.println("Height- "+height_cm+"cm");
+        System.out.println("Weight- "+weight_kg+"kg");
+        System.out.println("Jersey Number : "+jerseynumber);
+        System.out.println("Position : "+position + "\nAttacker Jersey : "+attackerjersey +"\nEligibility : "+ eligibility);
+        System.out.println("Lineup Decision : "+decision+"\nFinal Decision : "+finalStatus);
+
+        //Unwanted fall through
+       switch(jerseynumber){
+            case 1:
+                System.out.println("Goalkeeper");
+            case 2:
+                System.out.println("Defender");
+            case 5:
+                System.out.println("Defender");
+            case 6:
+                System.out.println("Midfielder");
+            case 7:
+                System.out.println("Winger");
+            case 8:
+                System.out.println("Midfielder");
+            case 9:
+                System.out.println("Striker");
+            case 10:
+                System.out.println("Winger");
+            default:
+                System.out.println("Invalid input");
+
+            }
+    }
+}
