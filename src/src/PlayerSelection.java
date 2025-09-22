@@ -100,5 +100,7 @@ public class PlayerSelection {
         
         String final_decision = (eligible) ? "Play" : "Rest";
             System.out.println("Final Decision: " + final_decision);
+
+        input.close();    
         }
     }
